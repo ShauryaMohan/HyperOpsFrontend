@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import PortalVisual from "./PortalVisual";
 import Slider from '@mui/material/Slider';
-import ColourGuide from "./ColourGuide";
 import PodInfo from "./PodInfo";
 import "./RealTime.css";
 
@@ -54,7 +53,7 @@ function RealTime({data, setRoute}){
                     <PortalVisual data={data} time={time} setPod={setPod}/>
                     <Slider aria-label="time" value={time} onChange={handleChange} step={1} min={0} max={599} valueLabelDisplay="off"/>
                     </div>
-                   {pod===-1?<ColourGuide/>:<PodInfo pod={pod} data={data} time={time}/>}
+                   <PodInfo pod={pod} data={data} time={time}/>
                    <div className="new-simulation-button" style={{marginTop: "20px", width: "10%", justifyContent: "center", bottom: "20px", right: "20px", position: "absolute"}} onClick={handleClose}>Back</div>
                 </div>
     )

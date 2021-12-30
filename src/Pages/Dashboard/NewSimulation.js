@@ -69,7 +69,14 @@ function NewSimulation({setRoute, setSimulationCreated, simulationCreated, setSi
 
             setRoute("Simulation");
             fetch('http://localhost:8000/simulations/', requestOptions)
-                .then(response => response.json()).then(data => {
+                .then(response => {
+                    if (response.status >= 200 && response.status <= 299) {
+                    return response.json();
+                  } else {
+                    setRoute("NewSimulation");
+                    alert(response.statusText);
+                  }
+                }).then(data => {
                         setSimulationCreated(simulationCreated + 1)
                         setSimulationData(data);
                         setSimulationList([...simulationList, [name, data.created_at, data.id]]);
