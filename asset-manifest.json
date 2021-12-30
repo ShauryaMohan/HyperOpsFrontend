@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HyperOpsFrontend/static/css/main.71801640.css",
+    "main.js": "/HyperOpsFrontend/static/js/main.328d6ca9.js",
+    "static/js/787.ddbef9f5.chunk.js": "/HyperOpsFrontend/static/js/787.ddbef9f5.chunk.js",
+    "index.html": "/HyperOpsFrontend/index.html",
+    "main.71801640.css.map": "/HyperOpsFrontend/static/css/main.71801640.css.map",
+    "main.328d6ca9.js.map": "/HyperOpsFrontend/static/js/main.328d6ca9.js.map",
+    "787.ddbef9f5.chunk.js.map": "/HyperOpsFrontend/static/js/787.ddbef9f5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71801640.css",
+    "static/js/main.328d6ca9.js"
+  ]
+}
