@@ -1,0 +1,38 @@
+.header {
+    background-color: #732BC4;
+    color: white;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    margin : 0;
+}
+
+
+
+.header-logo{
+    width: 10%;
+    margin-left: 5%;
+    margin-top: 0.7%;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5em;
+}
+
+
+.header-user{
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 15px;
+    align-content: center;
+}
+
+.header-icon{
+    margin-top: 9px;
+}

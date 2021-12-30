@@ -1,0 +1,10 @@
+.leftpane{
+    width: 20%;
+    position: relative;
+    background-color: #722bc42a;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 20px; */
+}

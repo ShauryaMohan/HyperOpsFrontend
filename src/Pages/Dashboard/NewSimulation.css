@@ -1,0 +1,43 @@
+.NewSimulation {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.new-simulation-button {
+    width: 20%;
+    text-align: center;
+}
+
+.UploadButton {
+    border-style: solid; 
+    border-width: 2px;
+    border-color: #722bc4; 
+    padding: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin: 10px;
+    background-color: white; 
+    border-radius: 15px;
+    color: #722bc4;
+    font-weight: 500;
+}
+
+.UploadButton:hover {
+    background-color: #722bc4;
+    color: white;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 2px solid #722bc4;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #722bc4;
+}
+

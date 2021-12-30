@@ -1,0 +1,35 @@
+.Dashboard-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Dashboard {
+    width: 70%;
+    padding: 20px;
+}
+
+.new-simulation-button {
+    margin-top: 30px;
+    padding: 10px;
+    padding-right: 14px;
+    background-color: #722bc4;
+    border-radius: 20px;
+    color: white;
+    border-style: none;
+    display: flex;
+    flex-direction: row;
+    font-weight: 500;
+    height: 25px;
+    cursor: pointer;
+    justify-content: space-evenly;
+}
+
+.button-icon {
+    padding-right: 5px;
+}
+
+.new-simulation-button:hover{
+    background-color: #722bc498;
+}
