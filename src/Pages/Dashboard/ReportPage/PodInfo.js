@@ -15,7 +15,6 @@ function PodInfo({pod, data, time}) {
             <div className='pod-info-item'><span>Occupancy :</span> <span>{data["portal_states"][time][platNumber][podNumber][1] === -1?0:data["portal_states"][time][platNumber][podNumber][1]}</span></div>
             <div className='pod-info-item'><span>Scheduled in :</span> <span>{data["portal_states"][time][platNumber][podNumber][2]===-1?"NA":data["portal_states"][time][platNumber][podNumber][2]}</span></div>
             <div className='pod-info-item'><span>Dwell Period :</span> <span>{data["portal_states"][time][platNumber][podNumber][3]===-1?"NA":data["portal_states"][time][platNumber][podNumber][3]}</span></div>
-            <p>Tickets Allocated: {data["allocation_dict"][time][podKey].map(ticket => <div>{ticket}</div>)}</p>
         </div>
     )
 }

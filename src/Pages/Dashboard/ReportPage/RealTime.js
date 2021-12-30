@@ -15,7 +15,7 @@ function RealTime({data, setRoute}){
             for (let i = 0; i < 600; i++) {
                 setTimeout(() => {
                     setTime(i);
-                }, i * 50);
+                }, i * 1000);
             }
         
     }
