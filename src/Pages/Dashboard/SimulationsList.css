@@ -1,7 +1,9 @@
-.simulation-list {
-    height: 70vh;
+.simulations-list {
+    height: 60vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    box-sizing: border-box;
+    padding-right: 10px;
 }
 
 .simulations-list-header {

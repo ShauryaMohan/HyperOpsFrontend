@@ -11,6 +11,8 @@ function NewSimulation({setRoute, setSimulationCreated, simulationCreated, setSi
     const [repairs,setRepairs] = useState([])
     const [file, setFile] = useState(NotUploaded);
     const [fileContent, setFileContent] = useState(null);
+    // let global_restapi = "https://hyper-ops-restapi.herokuapp.com/simulations/";
+    // let local_restapi = "http://localhost:8000/simulations/";
     var id = 0;
     var onDelete = (id) => {
         var someRepair = repairs.filter((repair, i) => {
@@ -68,7 +70,7 @@ function NewSimulation({setRoute, setSimulationCreated, simulationCreated, setSi
             };
 
             setRoute("Simulation");
-            fetch('http://localhost:8000/simulations/', requestOptions)
+            fetch("http://localhost:8000/simulations/", requestOptions)
                 .then(response => {
                     if (response.status >= 200 && response.status <= 299) {
                     return response.json();

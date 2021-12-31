@@ -9,7 +9,8 @@ function MainPane({route, setRoute}) {
     const [simulationList, setSimulationList] = useState([]);
     const [simulationCreated, setSimulationCreated] = useState(0);
     const [simulationData, setSimulationData] = useState(null);
-
+    // let local_restapi = "http://localhost:8000/simulations/";
+    // let global_restapi = "https://hyper-ops-restapi.herokuapp.com/simulations/";
     useEffect(() => {
         if(route !== "Simulation" && route !== "RealTime"){
             setSimulationData(null);

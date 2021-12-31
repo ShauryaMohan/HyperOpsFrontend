@@ -5,7 +5,10 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 
 function SimulationReport({data, setRoute}){
-    if (data){
+    
+    if (data === null || data === undefined ){
+        return (<Loading/>);
+    } else {
         let utilization_rate = data["statistics"]["Total Passengers boarded"]/data["statistics"]["Total Convoys Left"];
         utilization_rate = utilization_rate/168;
         let mins = Math.floor(data["statistics"]["max waiting time"]/60);
@@ -31,10 +34,6 @@ function SimulationReport({data, setRoute}){
                     <div className="new-simulation-button" style={{marginBottom:"20px", width: "20%", justifyContent: "space-evenly"}} onClick={() => setRoute("RealTime")}><AccessTimeIcon/> <div>Real Time</div></div>
                 </div>
             </div>
-        );
-    } else {
-        return (
-            <Loading/>
         );
     } 
 }
