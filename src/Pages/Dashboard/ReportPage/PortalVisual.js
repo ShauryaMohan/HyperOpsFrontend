@@ -1,11 +1,13 @@
 import './PortalVisual.css';
+import BuildIcon from '@mui/icons-material/Build';
 
 function PodVisual({pod, data, platform, setPod}){
-    var podColor = data[0] === 0? 'white' : (data[0] === 1? 'green' : (data[0] === 2? 'blue' : (data[0] === 3? 'red' : 'black')));
-    var Podstyle = {height: "45px", width: "30px", borderRadius: "5px", borderColor: podColor, borderStyle: "solid", borderWidth: "2px", backgroundColor: "white", color: podColor, margin: "2px", padding : "2px", boxSize: "border-box", display: "flex", justifyContent: "center", alignItems: "center"};
+    var podColor = data[0] === 0? '#D3D3D3' : (data[0] === 1? 'green' : (data[0] === 2? 'blue' : (data[0] === 3? 'red' : 'black')));
+    var podText = data[0] === 4? <BuildIcon/> :data[0] === 0? <div></div>: data[1] === -1?0:data[1];
+    var Podstyle = {height: "45px", width: "30px", borderRadius: "5px", borderColor: podColor, borderStyle: "solid", borderWidth: "2px", backgroundColor: "white", color: podColor, margin: "2px", padding : "2px", boxSize: "border-box", display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer"};
     return (
         <div className="pod-visual" key={pod} style={Podstyle} onClick={()=>{setPod(platform*6 + pod); console.log(platform*6 + pod)}}>
-            {data[1]===-1?0:data[1]}
+            {podText}
         </div>
     )
 }
