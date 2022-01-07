@@ -1,6 +1,6 @@
-import VisualModal from './VisualModal';
+import VisualModal from '../RealTime/VisualModal';
 import './SimulationReport.css';
-import Loading from './Loading';
+import Loading from '../GlobalComponents/Loading';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 

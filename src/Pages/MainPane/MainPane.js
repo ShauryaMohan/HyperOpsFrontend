@@ -1,8 +1,8 @@
 import Dashboard from "../Dashboard/Dashboard";
-import NewSimulation from "../Dashboard/NewSimulation";
+import NewSimulation from "../NewSimulation/NewSimulation";
 import React, {useState, useEffect} from 'react';
-import SimulationReport from "../Dashboard/ReportPage/SimulationReport";
-import RealTime from "../Dashboard/ReportPage/RealTime";
+import SimulationReport from "../ReportPage/SimulationReport";
+import RealTime from "../RealTime/RealTime";
 
 
 function MainPane({route, setRoute}) {

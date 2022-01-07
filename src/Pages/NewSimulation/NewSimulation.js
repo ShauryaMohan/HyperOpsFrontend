@@ -3,7 +3,7 @@ import RepairList from './Repairs/RepairList';
 import "./NewSimulation.css";
 import AddRepairModal from './Repairs/AddRepairModal';
 import React, {useState} from 'react';
-import generateName from './RandomName';
+import generateName from '../Utility/RandomName';
 
 
 const NotUploaded = "File yet to be uploaded!";
