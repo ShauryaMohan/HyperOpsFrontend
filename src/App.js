@@ -3,10 +3,11 @@ import Header from './Pages/Header/Header.js';
 import LeftPane from './Pages/LeftPane/LeftPane.js';
 import MainPane from './Pages/MainPane/MainPane.js';
 import React, {useState} from 'react';
+import {Routes} from './Constants';
 
 
 function App() {
-  const [route, setRoute] = useState('Dashbaord');
+  const [route, setRoute] = useState(Routes.DASHBOARD);
 
   return (
     <div className="App">

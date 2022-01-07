@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import PortalVisual from "./PortalVisual";
 import PodInfo from "./PodInfo";
 import "./RealTime.css";
+import { Routes } from "../../Constants";
 
 
 function RealTime({data, setRoute}){
@@ -40,17 +41,30 @@ function RealTime({data, setRoute}){
     }
     
     const handleClose = () => {
-        setRoute("Simulation");
+        setRoute(Routes.SIMULATION_REPORT);
     }
     return (
         <div className="real-time-body">
-                    <div style={{marginRight: "15px"}}>
-                    <div style={{color: "#722bc4", display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "5px", fontWeight: "600", fontSize: "20px"}}><span>Simulation: {name}</span><span>Time : {getTime(time)}</span></div>
-                    <PortalVisual data={data} time={time} setPod={setPod}/>
-                    </div>
-                   <PodInfo pod={pod} data={data} time={time}/>
-                   <div className="new-simulation-button" style={{marginTop: "20px", width: "10%", justifyContent: "center", bottom: "20px", right: "20px", position: "absolute"}} onClick={handleClose}>Back</div>
+            <div className='real-time-container'>
+                <div className="real-time-header">
+                    <span>Simulation: {name}</span><span>Time : {getTime(time)}</span>
                 </div>
+                <PortalVisual data={data} time={time} setPod={setPod}/>
+            </div>
+            <PodInfo pod={pod} data={data} time={time}/>
+            <div className="new-simulation-button" 
+                style={{
+                    marginTop: "20px", 
+                    width: "10%", 
+                    justifyContent: "center", 
+                    bottom: "20px", 
+                    right: "20px", 
+                    position: "absolute"
+                }} 
+                onClick={handleClose}>
+                    Back
+            </div>
+        </div>
     )
 }
 

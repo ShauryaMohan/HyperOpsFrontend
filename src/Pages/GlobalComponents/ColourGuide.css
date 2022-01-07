@@ -1,0 +1,35 @@
+.colourguide-container {
+    display: flex;
+    flex-direction: column;
+    color: #722bc4;
+    padding: 30px;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: #722bc4;
+}
+
+.colourguide-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.two-pod-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.pod-containers {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.pods {
+    padding: 2px;
+    margin: 2px;
+    height: 45px;
+    width: 30px;
+    border-radius: 5px;
+    border: 2px solid #722bc4;
+}

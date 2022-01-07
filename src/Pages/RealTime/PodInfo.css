@@ -20,3 +20,20 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.doughnut-container {
+    display: flex;
+    height: 35%;
+    width: 35%;
+    
+}
+
+.pod-info-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #722bc4;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 5px;
+}

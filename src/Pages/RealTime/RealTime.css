@@ -4,3 +4,17 @@
     display: flex;
     flex-direction: row;
 }
+
+.real-time-container {
+    margin-right: 15px;
+}
+
+.real-time-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #722bc4;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 1.3em;
+}
