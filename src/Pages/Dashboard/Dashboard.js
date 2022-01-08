@@ -3,7 +3,7 @@ import './Dashboard.css';
 import AddIcon from '@mui/icons-material/Add';
 import {Routes} from '../../Constants';
 
-function Dashboard({setRoute, simulationList, simDet}){
+function Dashboard({setRoute, simulationList, simDet, setSimulationList}){
     return (
         <div className="Dashboard">
             <div className="Dashboard-header">
@@ -12,7 +12,7 @@ function Dashboard({setRoute, simulationList, simDet}){
             </div>
             <div className="Dashboard-body">
                 <div className="simulations">
-                    <SimulationsList simulations={simulationList} simDet={simDet}/>
+                    <SimulationsList simulationList={simulationList} simDet={simDet} setSimulationList={setSimulationList}/>
                 </div>
             </div>
         </div>

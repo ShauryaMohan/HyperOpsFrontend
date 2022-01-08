@@ -6,8 +6,8 @@ import RealTime from "../RealTime/RealTime";
 import {Routes} from '../../Constants';
 
 
-function MainPane({route, setRoute}) {
-    const [simulationList, setSimulationList] = useState([]);
+function MainPane({route, setRoute, simulationList, setSimulationList}) {
+    
     const [simulationCreated, setSimulationCreated] = useState(0);
     const [simulationData, setSimulationData] = useState(null);
     
@@ -17,12 +17,7 @@ function MainPane({route, setRoute}) {
         }
     }, [route])  
 
-    useEffect(() => {
-        fetch("http://localhost:8000/simulations/").then(response => response.json()).then(data => {
-            data = data.map(simulation => {return [simulation.name, simulation.created_at, simulation.id]});
-            setSimulationList(data);
-        });
-    }, [route])
+    
 
     const simDet = (id) => {
         setRoute(Routes.SIMULATION_REPORT);
@@ -34,7 +29,7 @@ function MainPane({route, setRoute}) {
     
     if (route === Routes.DASHBOARD) {
         return (
-            <Dashboard setRoute={setRoute} simulationList={simulationList} simDet={simDet}/>
+            <Dashboard setRoute={setRoute} simulationList={simulationList} simDet={simDet} setSimulationList={setSimulationList}/>
         );
     }
     else if (route === Routes.NEW_SIMULATION) {

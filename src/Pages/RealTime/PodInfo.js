@@ -12,7 +12,7 @@ function PodInfo({pod, data, time}) {
         minutes = minutes.length === 1 ? "0" + minutes : minutes;
         seconds = (seconds % 60).toString();
         seconds = seconds.length === 1 ? "0" + seconds : seconds;
-        var time = minutes + ":" + seconds + " minutes";
+        var time = minutes + ":" + seconds ;
         return time;
     }
     let status = {0 : "Empty", 1 : "Ready", 2 : "Scheduled", 3 : "Dwelling", 4 : "Under Repair"};
@@ -72,13 +72,13 @@ function PodInfo({pod, data, time}) {
                 <span>Passengers Entered: </span> <span>{data["passengers_entered"][time]}</span>
             </div>
             <div className='pod-info-item'>
-                <span>Passengers Boarded: </span> <span>{data["passengers_boarded"][time]}</span>
+                <span>Passengers Departed: </span> <span>{data["passengers_boarded"][time]}</span>
             </div>
             <div className='pod-info-item'>
                 <span>Passengers in-transit: </span> <span>{data["passengers_entered"][time] - data["passengers_boarded"][time]}</span>
             </div>
             <div className='pod-info-item'>
-                <span>Convoys Left: </span> <span>{data["convoys_left"][time]}</span>
+                <span>Convoys Departed: </span> <span>{data["convoys_left"][time]}</span>
             </div>
             <div className='pod-info-item'>
                 <span>Utilization Rate: </span> <span>{ut_rate}%</span>
