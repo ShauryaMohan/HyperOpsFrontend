@@ -15,14 +15,14 @@ function RealTime({data, setRoute}){
             for (let i = 0; i < 600; i++) {
                 setTimeout(() => {
                     setTime(i);
-                }, i * 1000);
+                }, i * 200);
             }
         
     }
     useEffect(() => {
         playRealTime();
     },[]);
-
+    const graphView = () => setPod(-1);
     const getTime = (secs) => {
         var mins = Math.floor(secs/60);
         var hours = Math.floor(mins/60);
@@ -50,6 +50,25 @@ function RealTime({data, setRoute}){
                     <span>Simulation: {name}</span><span>Time : {getTime(time)}</span>
                 </div>
                 <PortalVisual data={data} time={time} setPod={setPod}/>
+                <div className="button-panel">
+                    <div className='new-simulation-button' 
+                        style={{
+                            marginTop: "5px",
+                            width: "25%",
+                            justifyContent: "center",
+                        }}
+                        onClick={graphView}>
+                        Portal Graph
+                    </div>
+                    <div className='new-simulation-button'
+                        style={{
+                            marginTop: "5px",
+                            width: "25%",
+                            justifyContent: "center",
+                        }}>
+                        Schedule Repair
+                    </div>
+                </div>
             </div>
             <PodInfo pod={pod} data={data} time={time}/>
             <div className="new-simulation-button" 

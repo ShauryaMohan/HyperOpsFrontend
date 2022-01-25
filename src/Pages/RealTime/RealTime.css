@@ -18,3 +18,10 @@
     font-weight: 600;
     font-size: 1.3em;
 }
+
+.button-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: inherit;
+}

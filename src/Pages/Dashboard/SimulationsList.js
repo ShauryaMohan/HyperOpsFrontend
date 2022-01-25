@@ -26,13 +26,14 @@ function SimulationsList({simulationList, simDet, setSimulationList}){
             
                 <div className="simulations-list">
                     {simulationList === null ? <Loading/> : 
-                    simulationList.length ? 
-                    simulationList.map(simulation => {
+                    simulationList.length ? simulationList.map(simulation => {
                         i++;
                         var name = simulation[0];
                         var date = simulation[1];
                         return (<Simulation name={name} date={date} id={i} server_id={simulation[2]} openSimDet={simDet} onDeleteSimulation={onDeleteSimulation}/>)
-                    }):<div>No Simulation has been performed yet. Please click "New Simulation button" to start a new simulation.</div>}
+                    }) :
+                    <div>No Simulation has been performed yet. Please click "New Simulation button" to start a new simulation.</div>
+                    }
                 </div>
             </div>
         </div>

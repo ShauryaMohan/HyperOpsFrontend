@@ -1,10 +1,20 @@
 import './PodInfo.css';
-import {Doughnut} from 'react-chartjs-2';
+import {Doughnut, Line} from 'react-chartjs-2';
 import { PodColours } from '../../Constants';
-import {Chart, ArcElement} from 'chart.js';
+import {Chart, ArcElement, CategoryScale, LinearScale, BarElement, LineElement, PointElement} from 'chart.js';
+
 Chart.register(ArcElement);
+Chart.register(CategoryScale);
+Chart.register(LinearScale);
+Chart.register(BarElement);
+Chart.register(LineElement);
+Chart.register(PointElement);
 
 function PodInfo({pod, data, time}) {
+    let distribution = [data["passengers_entered"][59]];
+        for (let i = 2; i < 11; i++){
+            distribution.push(data["passengers_entered"][60*i - 1] - data["passengers_entered"][60*(i-1) - 1]);
+        }
     let get_time = (secs) => {
         var mins = Math.floor(secs/60);
         var seconds = secs%60;
@@ -43,6 +53,29 @@ function PodInfo({pod, data, time}) {
             }
         }
     }
+    let minsDistribution = (time) => {
+        let mins = Math.floor(time/60);
+        let min = Math.min(...distribution);
+        return [mins>=1?distribution[mins-1]:min,mins>=2?distribution[mins-2]:min,mins>=3?distribution[mins-3]:min,mins>=4?distribution[mins-4]:min,mins>=5?distribution[mins-5]:min].reverse();
+    }
+    let barData = {
+        labels: ["-5 min", "-4 min", "-3 min", "-2 min", "-1 min"],
+        datasets: [{
+            backgroundColor: ['#722bc4', '#722bc4', '#722bc4', '#722bc4', '#722bc4'],
+            data: minsDistribution(time),
+        }],
+    };
+
+    let barOptions = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: false,
+                    max: 500,
+                }
+            }]
+        }
+    };
     return (
         <div className="pod-info">
             {pod !== -1?
@@ -63,8 +96,13 @@ function PodInfo({pod, data, time}) {
                     <span>Dwell Period :</span> <span>{data["portal_states"][time][platNumber][podNumber][3]===-1?"NA":data["portal_states"][time][platNumber][podNumber][3]}</span>
                 </div>
             </div> : 
-            <div className='doughnut-container'>
-                <Doughnut data={doughnutData} options={doughnutOptions}/>
+            <div className='visual-tool-container'>
+                <div className='doughnut-container'>
+                    <Doughnut data={doughnutData} options={doughnutOptions}/>
+                </div>
+                <div className='bar-container'>
+                    <Line data={barData} options={{barOptions}}/>
+                </div>
             </div>
             }
             <div className="pod-info-header">Portal State:</div>

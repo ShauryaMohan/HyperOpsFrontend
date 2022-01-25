@@ -21,11 +21,24 @@
     padding-right: 5px;
 }
 
+.visual-tool-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: inherit;
+}
+
 .doughnut-container {
     display: flex;
     height: 35%;
-    width: 35%;
+    width: 30%;
     
+}
+
+.bar-container {
+    display: flex;
+    margin-top: 1%;
+    width: 70%;
 }
 
 .pod-info-header {
