@@ -3,7 +3,8 @@ import RepairList from './Repairs/RepairList';
 import "./NewSimulation.css";
 import AddRepairModal from './Repairs/AddRepairModal';
 import React, {useState} from 'react';
-import generateName from './RandomName';
+import generateName from '../Utility/RandomName';
+import {Routes} from '../../Constants';
 
 
 const NotUploaded = "File yet to be uploaded!";
@@ -11,6 +12,8 @@ function NewSimulation({setRoute, setSimulationCreated, simulationCreated, setSi
     const [repairs,setRepairs] = useState([])
     const [file, setFile] = useState(NotUploaded);
     const [fileContent, setFileContent] = useState(null);
+    // let global_restapi = "https://hyper-ops-restapi.herokuapp.com/simulations/";
+    // let local_restapi = "http://localhost:8000/simulations/";
     var id = 0;
     var onDelete = (id) => {
         var someRepair = repairs.filter((repair, i) => {
@@ -67,13 +70,13 @@ function NewSimulation({setRoute, setSimulationCreated, simulationCreated, setSi
                 })
             };
 
-            setRoute("Simulation");
-            fetch('http://localhost:8000/simulations/', requestOptions)
+            setRoute(Routes.SIMULATION_REPORT);
+            fetch("http://localhost:8000/simulations/", requestOptions)
                 .then(response => {
                     if (response.status >= 200 && response.status <= 299) {
                     return response.json();
                   } else {
-                    setRoute("NewSimulation");
+                    setRoute(Routes.NEW_SIMULATION);
                     alert(response.statusText);
                   }
                 }).then(data => {
@@ -89,13 +92,29 @@ function NewSimulation({setRoute, setSimulationCreated, simulationCreated, setSi
     var UploadDivStyle = {color: uploadTextColor};
     return (
         <div className="NewSimulation">
-            <div className="NewSimulation-header" style={{color: "#722bc4"}}><h1 >New Simulation</h1> <p>Add a JSON file for passenger input and schedule repairs for pod bays</p></div>
+            <div className="NewSimulation-header" style={{color: "#722bc4"}}>
+                <h1 >New Simulation</h1> 
+                <p>Add a JSON file for passenger input and schedule repairs for pod bays</p>
+            </div>
             <div className="NewSimulation-body">
-            <div className='upload-div' style={UploadDivStyle}><label class="custom-file-upload"><input type="file" id="file" name="file" accept=".json" onChange={handleFileUpload}/>Upload File</label> {file} </div>
-                {/* <button className='UploadButton'>Upload</button> */}
+            <div className='upload-div' style={UploadDivStyle}>
+                <label class="custom-file-upload">
+                    <input type="file" id="file" name="file" accept=".json" onChange={handleFileUpload}/>
+                    Upload File
+                </label> {file} 
+            </div>
                 <AddRepairModal repairs={repairs} onAdd={onAdd}/>
                 <RepairList repairs={repairs} onDelete={onDelete} id={id}/>
-                <div className="new-simulation-button" style={{width:"10%", position: "absolute", bottom: "20px", textAlign: "center", justifyContent: "center"}} onClick={handleSubmit}>Start Simulation</div>
+                <div className="new-simulation-button" 
+                    style={{
+                        width:"10%", 
+                        position: "absolute", 
+                        bottom: "20px", 
+                        justifyContent: "center"
+                    }} 
+                    onClick={handleSubmit}>
+                        Start Simulation
+                </div>
             </div>
         </div>
     )

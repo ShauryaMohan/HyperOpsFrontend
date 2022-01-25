@@ -1,0 +1,19 @@
+.portal-visual {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.podBays {
+    padding: 2px;
+    margin: 2px;
+    height: 45px;
+    width: 30px;
+    border-radius: 5px;
+    border: 2px solid #722bc4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

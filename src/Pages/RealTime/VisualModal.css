@@ -1,0 +1,9 @@
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #722bc4;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 1.3em;
+}
